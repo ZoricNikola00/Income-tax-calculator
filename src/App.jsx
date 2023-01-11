@@ -8,7 +8,7 @@ const App = () => {
     const [formData, setFormData]=useState({
         type:'',
         income:0,
-        period:'Hourly'
+        freq:'Hourly'
     })
   return (
     <div className='mt-[50px] h-fit flex justify-center items-center flex-col'>
