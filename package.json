@@ -1,10 +1,14 @@
 {
-  "name": "Income-tax-calculator",
+  "name": "income-tax-calculator",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/ZoricNikola00/Income-tax-calculator.git",
   "author": "ZoricNikola00 <zoriclfc@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "webpack --config webpack.prod.js",
+		"start": "webpack-dev-server --hot --config webpack.dev.js"
+  },
   "devDependencies": {
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
