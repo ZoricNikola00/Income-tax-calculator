@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { frequencyData } from '../Data'
 
 const Details = ({formData}) => {
     const tax=0.4 //random tax
@@ -67,21 +68,45 @@ const Details = ({formData}) => {
             quarterly=annualy/4
         }
         setCaclulatedGrossIncome({
-            Hourly:hourly.toFixed(2),
-            Daily:daily.toFixed(2),
-            Weakly:weakly.toFixed(2),
-            Quarteryl:quarterly.toFixed(2),
-            Monthly:monthly.toFixed(2),
-            Annualy:annualy.toFixed(2)
+            Hourly:hourly,
+            Daily:daily,
+            Weakly:weakly,
+            Quarterly:quarterly,
+            Monthly:monthly,
+            Annualy:annualy
         })
     }
     useEffect(()=>{
         calculation()
     }
     ,[])
-    console.log(calculatedGrossIncome,formData.freq);
     return (
-    <div>Details</div>
+    <div className='p-4 w-full text-center'>
+        <h1 className='text-primary text-lg my-2 font-semibold'>
+            Your Net {formData.freq} income is <br className='block md:hidden my-2'/>
+            <span className='py-2 font-bold px-3 rounded-lg bg-primary text-white text-xl'>
+                {Math.round(selectedIncome-selectedIncome*tax)}
+            </span>
+        </h1>
+        <div className='w-full text-primary p-2 text-md font-semibold border-primary border-2 rounded-lg mt-10'>
+            <div className='grid grid-cols-3 w-full text-secondary border-b-2 border-secondary'>
+                <span className='col-span-1'>Period</span>
+                <span className='col-span-1'>Gross Income</span>
+                <span className='col-span-1'>Net Income</span>
+            </div>
+            {frequencyData.map(item=>{
+            const income=+calculatedGrossIncome[item.frequency]
+            return <div key={item.id} className='hover:bg-primary hover:text-white transition duration-300 py-2 my-2 w-full grid grid-cols-3 text-lg border-b-2 border-secondary'>
+                <span className='col-span-1'>{item.frequency}</span>
+                <span className='col-span-1'>
+                    ${Math.round(income)}
+                </span>
+                <span className='col-span-1'>
+                    ${Math.round(income- income*tax)}
+                </span>
+            </div>})}
+        </div>
+    </div>
   )
 }
 
