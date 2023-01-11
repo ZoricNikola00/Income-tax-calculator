@@ -1,0 +1,8 @@
+{
+  "name": "Income-tax-calculator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ZoricNikola00/Income-tax-calculator.git",
+  "author": "ZoricNikola00 <zoriclfc@gmail.com>",
+  "license": "MIT"
+}
