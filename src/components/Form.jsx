@@ -23,7 +23,7 @@ const Form = ({setFormData,setIsForm, formData}) => {
         <div className='w-full flex flex-col mb-[40px]'>
             <label htmlFor='freq' className='text-secondary mb-2'>What is your pay frequency?</label>
             <select name='freq' className='w-full text-primary outline-none rounded-lg font-semibold text-lg border-secondary bg-white focus:border-primary hover:border-primary border-2 p-4'>
-                {frequencyData.map((freq)=><option key={freq.id} onClick={(e)=>setFormData((p)=>({...p,frequency:e.target.value}))}>{freq.frequency}</option>)}
+                {frequencyData.map((freq)=><option key={freq.id} onClick={(e)=>setFormData((p)=>({...p,freq:e.target.value}))}>{freq.frequency}</option>)}
             </select>
         </div>
         <div className='w-full flex flex-col mb-[40px]'>
