@@ -1,5 +1,7 @@
 import React, {useState}from 'react'
 import { FaHouseUser } from 'react-icons/fa';
+import Details from './components/Details';
+import Form from './components/Form';
 
 const App = () => {
     const [isForm,setIsForm]=useState(true)
@@ -25,6 +27,19 @@ const App = () => {
                     className={`${!isForm?'border-b-primary':'border-b-secondary'} ${formData.income && formData.type?'cursor-pointer':'cursor-not-allowed'} hover:bg-primary hover:text-white transition-all text-lg font-bold duration-500 w-full p-4 text-center border-b-[5px]  border-secondary rounded-tr-lg border-l`}>
                     Income Details
                 </div>
+            </div>
+            <div className='w-full h-full'>
+                {isForm?
+                <Form
+                    setIsForm={setIsForm}
+                    formData={formData}
+                    setFormData={setFormData}
+                />
+            :
+                <Details 
+                    formData={formData}
+                />
+            }
             </div>
         </div>
     </div>
