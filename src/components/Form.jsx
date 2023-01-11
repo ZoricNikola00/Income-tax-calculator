@@ -15,7 +15,13 @@ const Form = ({setFormData,setIsForm, formData}) => {
             </label>
             <input
                 value={formData.income}
-                onChange={(e)=>setFormData((p)=>({...p,income:e.target.value}))}
+                type="text"
+                onChange={(e)=>{
+                    const num=/^[0-9\b]+$/
+                    if (e.target.value === '' || num.test(e.target.value)) {
+                        setFormData((p)=>({...p,income:e.target.value}))
+                    }
+                }}
                 name='income'
                 className="w-full text-primary outline-none rounded-lg font-semibold text-lg border-secondary focus:border-primary hover:border-primary border-2 p-4"
             />
